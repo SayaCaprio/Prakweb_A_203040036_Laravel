@@ -18,13 +18,13 @@ use App\Http\Controllers\PostController;
 
 Route::get('/', function () {
     return view('home', [
-        "tittle" => "Home"
+        "title" => "Home"
     ]);
 });
 
 Route::get('/about', function () {
     return view('about', [
-        "tittle" => "About",
+        "title" => "About",
         "name" => "Caprio Sinaga",
         "email" => "Caprio.sinaga16@gmail.com",
         "image" => "Cap.jpg"
@@ -34,4 +34,4 @@ Route::get('/about', function () {
 
 Route::get('/blog', [PostController:: class, 'index']);
 // halaman single post
-Route::get('posts/{slug}', [PostController::class, 'show']);
+Route::get('posts/{post:slug}', [PostController::class, 'show']);
