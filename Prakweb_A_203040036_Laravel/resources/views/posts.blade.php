@@ -1,7 +1,18 @@
 @extends('layouts.main')
 
 @section('container')
-<h1 class="mb-5">{{ $title }}</h1>
+<h1 class="mb-3 text-center">{{ $title }}</h1>
+
+<div class="row justify-content-center mb-3">
+    <div class="col-md-6">
+        <form action="/posts">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Seacrh.. " name="search" aria-describedby="button-addon2">
+                <button class="btn btn-danger" type="submit" >Search</button>
+              </div> 
+        </form>
+    </div>
+</div>
 
 @if ($posts->count())
 
@@ -21,12 +32,7 @@
 
     </div>
   </div>
-@else 
 
-  <p class="text-center fs-4">No post found.</p>
-  
-
-@endif
 
     <div class="countainer">
         <div class="row">
@@ -69,5 +75,12 @@
         <a href="/posts/{{ $post->slug }}"class="text-decoration-none">Read More ...</a>
     </article>   
     @endforeach --}}
+
+    @else 
+
+  <p class="text-center fs-4">No post found.</p>
+  
+
+@endif
 
 @endsection
